@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-LABEL org.opencontainers.image.source="https://github.com/neuro-inc/dify-hook"
+LABEL org.opencontainers.image.source="https://github.com/neuro-inc/dify-helm"
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \

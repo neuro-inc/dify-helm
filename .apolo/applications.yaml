@@ -8,12 +8,12 @@
     schema_path: .apolo/src/apolo_apps_dify/schemas/DifyAppInputs.json
     types_name: DifyAppInputs
     processor: DifyInputsProcessor
-    image: ghcr.io/neuro-inc/dify-hook
+    image: ghcr.io/neuro-inc/dify-helm
   outputs:
     schema_path: .apolo/src/apolo_apps_dify/schemas/DifyAppOutputs.json
     types_name: DifyAppOutputs
     processor: DifyOutputProcessor
-    image: ghcr.io/neuro-inc/dify-hook
+    image: ghcr.io/neuro-inc/dify-helm
   short_description: Run Dify an open-source, no-code/low-code platform to build and deploy LLM-powered applications
   description: |
     Dify enables users to create generative AI applications without extensive coding knowledge.

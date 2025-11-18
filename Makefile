@@ -1,4 +1,4 @@
-IMAGE_NAME ?= dify-hook
+IMAGE_NAME ?= dify-helm
 IMAGE_TAG ?= latest
 
 SHELL := /bin/sh -e

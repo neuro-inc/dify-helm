@@ -10,7 +10,7 @@ dynamic = ["version"]
 requires-python = ">=3.11.0,<4.0"
 
 [tool.poetry]
-name = "apolo-apps-generic-service-deployment"
+name = "apolo-apps-dify"
 authors = ["Apolo.us"]
 packages = [
   { include = "apolo_apps_dify", from = ".apolo/src" },
