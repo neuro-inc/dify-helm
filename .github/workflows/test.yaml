@@ -1,9 +1,9 @@
 on:
   push:
-    branches: [master]
+    branches: [apolo]
     tags: ["v*"]
   pull_request:
-    branches: [master]
+    branches: [apolo]
   workflow_call: {}
 
 jobs:

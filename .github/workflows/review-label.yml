@@ -2,7 +2,7 @@ name: Sync review-ready label
 
 on:
   pull_request:
-    branches: [master]
+    branches: [apolo]
     types:
     - labeled
     - unlabeled
