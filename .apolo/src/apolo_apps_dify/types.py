@@ -156,6 +156,7 @@ class DifyAppInputs(AppInputs):
         json_schema_extra=SchemaExtraMetadata(
             title="Postgres Credentials",
             description="Main Postgres instance credentials",
+            meta_type=SchemaMetaType.INTEGRATION,
         ).as_json_schema_extra(),
     )
     external_pgvector: CrunchyPostgresUserCredentials = Field(
@@ -172,7 +173,6 @@ class DifyAppInputs(AppInputs):
             title="HTTP Ingress",
             description="Define HTTP ingress configuration"
             " for exposing services over the web.",
-            meta_type=SchemaMetaType.INTEGRATION,
         ).as_json_schema_extra(),
     )
 

@@ -394,7 +394,6 @@
     "external_postgres": {
       "$ref": "#/$defs/CrunchyPostgresUserCredentials",
       "x-description": "Main Postgres instance credentials",
-      "x-meta-type": "inline",
       "x-title": "Postgres Credentials"
     },
     "external_pgvector": {
@@ -413,7 +412,7 @@
       ],
       "x-description": "Define HTTP ingress configuration for exposing services over the web.",
       "x-is-advanced-field": false,
-      "x-meta-type": "integration",
+      "x-meta-type": "inline",
       "x-title": "HTTP Ingress"
     }
   },
