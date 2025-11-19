@@ -10,6 +10,7 @@ from apolo_app_types.protocols.common import (
     Preset,
     Redis,
     SchemaExtraMetadata,
+    SchemaMetaType,
 )
 from apolo_app_types.protocols.dify import DifyAppOutputs
 from apolo_app_types.protocols.postgres import CrunchyPostgresUserCredentials
@@ -162,6 +163,7 @@ class DifyAppInputs(AppInputs):
         json_schema_extra=SchemaExtraMetadata(
             title="PGVector Credentials",
             description="PGVector instance credentials for vector embeddings storage",
+            meta_type=SchemaMetaType.INTEGRATION,
         ).as_json_schema_extra(),
     )
     ingress_http: IngressHttp | None = Field(
@@ -170,6 +172,7 @@ class DifyAppInputs(AppInputs):
             title="HTTP Ingress",
             description="Define HTTP ingress configuration"
             " for exposing services over the web.",
+            meta_type=SchemaMetaType.INTEGRATION,
         ).as_json_schema_extra(),
     )
 

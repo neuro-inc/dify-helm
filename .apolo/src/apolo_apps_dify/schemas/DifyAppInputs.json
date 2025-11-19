@@ -400,7 +400,6 @@
     "external_pgvector": {
       "$ref": "#/$defs/CrunchyPostgresUserCredentials",
       "x-description": "PGVector instance credentials for vector embeddings storage",
-      "x-meta-type": "inline",
       "x-title": "PGVector Credentials"
     },
     "ingress_http": {
@@ -414,7 +413,7 @@
       ],
       "x-description": "Define HTTP ingress configuration for exposing services over the web.",
       "x-is-advanced-field": false,
-      "x-meta-type": "inline",
+      "x-meta-type": "integration",
       "x-title": "HTTP Ingress"
     }
   },
