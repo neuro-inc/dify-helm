@@ -376,20 +376,6 @@
     }
   },
   "properties": {
-    "ingress_http": {
-      "anyOf": [
-        {
-          "$ref": "#/$defs/IngressHttp"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "x-description": "Define HTTP ingress configuration for exposing services over the web.",
-      "x-is-advanced-field": false,
-      "x-meta-type": "inline",
-      "x-title": "HTTP Ingress"
-    },
     "api": {
       "$ref": "#/$defs/DifyAppApi"
     },
@@ -406,10 +392,30 @@
       "$ref": "#/$defs/DifyAppRedis"
     },
     "external_postgres": {
-      "$ref": "#/$defs/CrunchyPostgresUserCredentials"
+      "$ref": "#/$defs/CrunchyPostgresUserCredentials",
+      "x-description": "Main Postgres instance credentials",
+      "x-meta-type": "inline",
+      "x-title": "Postgres Credentials"
     },
     "external_pgvector": {
-      "$ref": "#/$defs/CrunchyPostgresUserCredentials"
+      "$ref": "#/$defs/CrunchyPostgresUserCredentials",
+      "x-description": "PGVector instance credentials for vector embeddings storage",
+      "x-meta-type": "inline",
+      "x-title": "PGVector Credentials"
+    },
+    "ingress_http": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/IngressHttp"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "x-description": "Define HTTP ingress configuration for exposing services over the web.",
+      "x-is-advanced-field": false,
+      "x-meta-type": "inline",
+      "x-title": "HTTP Ingress"
     }
   },
   "required": [

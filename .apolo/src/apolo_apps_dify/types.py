@@ -138,14 +138,6 @@ class DifyAppRedis(BaseModel):
 
 
 class DifyAppInputs(AppInputs):
-    ingress_http: IngressHttp | None = Field(
-        default_factory=lambda: IngressHttp(),
-        json_schema_extra=SchemaExtraMetadata(
-            title="HTTP Ingress",
-            description="Define HTTP ingress configuration"
-            " for exposing services over the web.",
-        ).as_json_schema_extra(),
-    )
     api: DifyAppApi
     worker: DifyAppWorker
     proxy: DifyAppProxy
@@ -158,8 +150,28 @@ class DifyAppInputs(AppInputs):
     #         description="Configure Dify Blob Storage (Bucket).",
     #     ).as_json_schema_extra(),
     # )
-    external_postgres: CrunchyPostgresUserCredentials
-    external_pgvector: CrunchyPostgresUserCredentials
+    external_postgres: CrunchyPostgresUserCredentials = Field(
+        ...,
+        json_schema_extra=SchemaExtraMetadata(
+            title="Postgres Credentials",
+            description="Main Postgres instance credentials",
+        ).as_json_schema_extra(),
+    )
+    external_pgvector: CrunchyPostgresUserCredentials = Field(
+        ...,
+        json_schema_extra=SchemaExtraMetadata(
+            title="PGVector Credentials",
+            description="PGVector instance credentials for vector embeddings storage",
+        ).as_json_schema_extra(),
+    )
+    ingress_http: IngressHttp | None = Field(
+        default_factory=lambda: IngressHttp(),
+        json_schema_extra=SchemaExtraMetadata(
+            title="HTTP Ingress",
+            description="Define HTTP ingress configuration"
+            " for exposing services over the web.",
+        ).as_json_schema_extra(),
+    )
 
 
 __all__ = [
