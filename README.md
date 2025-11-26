@@ -12,7 +12,7 @@ helm repo update
 helm install my-release dify/dify
 ```
 
-## Supported Component 
+## Supported Component
 ### Components that could be deployed on kubernetes in current version
 - [x] core (`api`, `worker`, `sandbox`)
 - [x] proxy (via built-in `nginx` or `ingress`)
@@ -36,4 +36,3 @@ helm install my-release dify/dify
 <a href="https://github.com/borispolonsky/dify-helm/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=borispolonsky/dify-helm" />
 </a>
-

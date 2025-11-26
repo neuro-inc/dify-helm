@@ -1,0 +1,36 @@
+- app_type: dify
+  name: dify
+  title: Dify
+  install_type: workflow
+  helm_path: charts/dify
+  app_package_name: apolo_apps_dify
+  inputs:
+    schema_path: .apolo/src/apolo_apps_dify/schemas/DifyAppInputs.json
+    types_name: DifyAppInputs
+    processor: DifyInputsProcessor
+    image: ghcr.io/neuro-inc/dify-helm
+  outputs:
+    schema_path: .apolo/src/apolo_apps_dify/schemas/DifyAppOutputs.json
+    types_name: DifyAppOutputs
+    processor: DifyOutputProcessor
+    image: ghcr.io/neuro-inc/dify-helm
+  short_description: Run Dify an open-source, no-code/low-code platform to build and deploy LLM-powered applications
+  description: |
+    Dify enables users to create generative AI applications without extensive coding knowledge.
+    It offers a visual interface for designing AI workflows,
+    integrating Retrieval-Augmented Generation (RAG) pipelines, and managing AI agents.
+    This approach democratizes AI development, allowing both technical and non-technical users
+    to build sophisticated AI solutions.
+  pub_date: "2025-05-08T00:00:00+00:00"
+  logo: https://storage.googleapis.com/development-421920-assets/app-logos/dify.png
+  tags: ["Dify", "LLM", "LLMops", "RAG", "Agent"]
+  urls:
+    - name: Dify Repository
+      type: documentation
+      url: https://github.com/langgenius/dify
+    - name: Dify Documentation
+      type: documentation
+      url: https://docs.dify.ai/en/introduction
+  assets:
+    - type: image
+      url: https://storage.googleapis.com/development-421920-assets/app-logos/dify-banner.svg
