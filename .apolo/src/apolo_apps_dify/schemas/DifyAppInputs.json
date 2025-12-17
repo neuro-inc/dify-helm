@@ -14,6 +14,7 @@
       "type": "object",
       "x-description": "Use Apolo platform's built-in authentication and authorization. Requires authenticated user credentials with appropriate permissions.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Apolo Platform Authentication",
       "x-type": "ApoloAuth"
@@ -32,6 +33,7 @@
       "type": "object",
       "x-description": "Apolo Secret Configuration.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Secret",
       "x-type": "ApoloSecret"
@@ -44,6 +46,7 @@
           "type": "string",
           "x-description": "Name of the authentication middleware (with namespace) to apply to ingress traffic.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Middleware Name"
         }
@@ -55,6 +58,7 @@
       "type": "object",
       "x-description": "Configure authentication middleware for ingress traffic.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "integration",
       "x-title": "Authentication Ingress Middleware",
       "x-type": "AuthIngressMiddleware"
@@ -66,6 +70,7 @@
           "type": "string",
           "x-description": "Username for the Postgres user.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Postgres User"
         },
@@ -73,6 +78,7 @@
           "$ref": "#/$defs/ApoloSecret",
           "x-description": "Password for the Postgres user.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Postgres Password"
         },
@@ -81,6 +87,7 @@
           "type": "string",
           "x-description": "Host of the Postgres instance.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Postgres Host"
         },
@@ -90,6 +97,7 @@
           "type": "integer",
           "x-description": "Port of the Postgres instance.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Postgres Port"
         },
@@ -98,6 +106,7 @@
           "type": "string",
           "x-description": "Host of the PGBouncer instance.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "PGBouncer Host"
         },
@@ -107,6 +116,7 @@
           "type": "integer",
           "x-description": "Port of the PGBouncer instance.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "PGBouncer Port"
         },
@@ -163,6 +173,7 @@
       "type": "object",
       "x-description": "Configuration for Crunchy Postgres user credentials.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "integration",
       "x-title": "Postgres User Credentials",
       "x-type": "CrunchyPostgresUserCredentials"
@@ -189,6 +200,7 @@
       "type": "object",
       "x-description": "Use a custom authentication middleware for this ingress. Allows integration with custom authentication providers.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Custom Authentication",
       "x-type": "CustomAuth"
@@ -202,6 +214,7 @@
           "type": "integer",
           "x-description": "Configure Replicas count.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Replicas Count"
         },
@@ -216,6 +229,7 @@
       "type": "object",
       "x-description": "Configure Dify Api.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Dify API"
     },
@@ -232,6 +246,7 @@
       "type": "object",
       "x-description": "Configure Dify Proxy.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Dify Proxy"
     },
@@ -250,6 +265,7 @@
       "type": "object",
       "x-description": "Configure Dify Redis.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Dify Redis"
     },
@@ -262,6 +278,7 @@
           "type": "integer",
           "x-description": "Configure Replicas count.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Replicas Count"
         },
@@ -276,6 +293,7 @@
       "type": "object",
       "x-description": "Configure Dify Web.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Dify Web"
     },
@@ -288,6 +306,7 @@
           "type": "integer",
           "x-description": "Configure Replicas count.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Replicas Count"
         },
@@ -302,6 +321,7 @@
       "type": "object",
       "x-description": "Configure Dify Worker.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Dify Worker"
     },
@@ -322,6 +342,7 @@
           "title": "Auth",
           "x-description": "Configure authentication for this ingress. Choose Apolo platform authentication, custom middleware, or no authentication.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Authentication"
         }
@@ -330,6 +351,7 @@
       "type": "object",
       "x-description": "Enable access to your application over the internet using HTTPS.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Enable HTTP Ingress",
       "x-type": "IngressHttp"
@@ -348,6 +370,7 @@
       "type": "object",
       "x-description": "Disable authentication for this ingress. The application will be publicly accessible without any authentication.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "No Authentication",
       "x-type": "NoAuth"
@@ -359,6 +382,7 @@
           "type": "string",
           "x-description": "The name of the preset.",
           "x-is-advanced-field": false,
+          "x-is-configurable": true,
           "x-meta-type": "inline",
           "x-title": "Resource Preset"
         }
@@ -370,6 +394,7 @@
       "type": "object",
       "x-description": "Select the resource preset used per service replica.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "Resource Preset",
       "x-type": "Preset"
@@ -412,6 +437,7 @@
       ],
       "x-description": "Define HTTP ingress configuration for exposing services over the web.",
       "x-is-advanced-field": false,
+      "x-is-configurable": true,
       "x-meta-type": "inline",
       "x-title": "HTTP Ingress"
     }
