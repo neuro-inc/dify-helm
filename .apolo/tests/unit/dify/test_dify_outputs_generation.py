@@ -1,6 +1,5 @@
 import pytest
-
-from apolo_app_types.outputs.dify import get_dify_outputs
+from apolo_apps_dify.outputs_processor import get_dify_outputs
 
 
 @pytest.mark.asyncio

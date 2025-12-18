@@ -280,14 +280,14 @@ trio = ["trio (>=0.31.0)"]
 
 [[package]]
 name = "apolo-app-types"
-version = "25.11.5"
+version = "25.12.2"
 description = "Apolo Platform App Types."
 optional = false
 python-versions = "<4.0,>=3.9.0"
 groups = ["main"]
 files = [
-    {file = "apolo_app_types-25.11.5-py3-none-any.whl", hash = "sha256:7d75ee0b2b23cd50df2b19b75d6c527698b68e2698c0ece6b5a4216893307b9b"},
-    {file = "apolo_app_types-25.11.5.tar.gz", hash = "sha256:39914731ad8ab36af9cf37221c709848b7ac8421e13a89aa52b05da259d18289"},
+    {file = "apolo_app_types-25.12.2-py3-none-any.whl", hash = "sha256:78b7929483da6785ad1ab65d3cd4da901db045ae5bb21d45d0ac4d39d7772232"},
+    {file = "apolo_app_types-25.12.2.tar.gz", hash = "sha256:da284755c169fb9cf9e1fab164cfd4e9f2a37cd740880b917d617503e9630c29"},
 ]
 
 [package.dependencies]
@@ -296,7 +296,7 @@ click = ">=8.0.3,<9.0.0"
 httpx = ">=0.28.0,<0.29.0"
 jsonref = ">=1.1.0,<2.0.0"
 kubernetes = ">=34.1.0,<35.0.0"
-pydantic = ">=2.12.4,<3.0.0"
+pydantic = ">=2.12.5,<3.0.0"
 pyyaml = ">=6.0.3,<7.0.0"
 tenacity = ">=9.1.2,<10.0.0"
 types-PyYAML = ">=6.0.12.20250915,<7.0.0.0"
@@ -1797,14 +1797,14 @@ files = [
 
 [[package]]
 name = "pydantic"
-version = "2.12.4"
+version = "2.12.5"
 description = "Data validation using Python type hints"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic-2.12.4-py3-none-any.whl", hash = "sha256:92d3d202a745d46f9be6df459ac5a064fdaa3c1c4cd8adcfa332ccf3c05f871e"},
-    {file = "pydantic-2.12.4.tar.gz", hash = "sha256:0f8cb9555000a4b5b617f66bfd2566264c4984b27589d3b845685983e8ea85ac"},
+    {file = "pydantic-2.12.5-py3-none-any.whl", hash = "sha256:e561593fccf61e8a20fc46dfc2dfe075b8be7d0188df33f221ad1f0139180f9d"},
+    {file = "pydantic-2.12.5.tar.gz", hash = "sha256:4d351024c75c0f085a9febbb665ce8c0c6ec5d30e903bdb6394b7ede26aebb49"},
 ]
 
 [package.dependencies]
@@ -2602,4 +2602,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11.0,<4.0"
-content-hash = "5d0b4eb443ca8a81788835b6353e3e0d0bd3cfd94805ab23a938cbf84c945f61"
+content-hash = "823120678fd2262bcbeae0e4d724f224edfb6b5ab435bd6f8452eaa18faadbc6"
