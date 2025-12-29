@@ -17,7 +17,7 @@ from apolo_apps_dify.types import (
     DifyAppWorker,
 )
 
-from apolo_app_types.protocols.common import ApoloSecret, IngressHttp, Preset
+from apolo_app_types.protocols.common import IngressHttp, Preset
 
 
 async def test_dify_values_generation(setup_clients):
@@ -44,9 +44,9 @@ async def test_dify_values_generation(setup_clients):
                 )
             ],
         )
-
-        # Create the processor instance with the client
-        processor = DifyInputsProcessor(client=setup_clients)
+        client = setup_clients
+        client.secrets.get = AsyncMock(return_value=b"super-secret-password")
+        processor = DifyInputsProcessor(client=client)
 
         # Call gen_extra_values directly
         helm_params = await processor.gen_extra_values(
@@ -89,14 +89,14 @@ async def test_dify_values_generation(setup_clients):
         }
         assert helm_params["externalPostgres"] == {
             "username": "pgvector_user",
-            "password": ApoloSecret(key="pgvector_password"),
+            "password": "super-secret-password",
             "address": "pgbouncer_host",
             "port": 4321,
             "dbName": "db_name",
         }
         assert helm_params["externalPgvector"] == {
             "username": "pgvector_user",
-            "password": ApoloSecret(key="pgvector_password"),
+            "password": "super-secret-password",
             "address": "pgbouncer_host",
             "port": 4321,
             "dbName": "db_name",
