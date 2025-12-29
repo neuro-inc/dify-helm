@@ -121,7 +121,4 @@ async def test_dify_values_generation(setup_clients):
             "secretKey": "test-secret-key",
             "bucketName": "test-bucket",
         }
-        assert (
-            mock_fetch.call_args[1]["bucket_name"]
-            == "app-dify-dify-app-with-long-name-that-sh"
-        )
+        assert mock_fetch.call_args[1]["bucket_name"] == f"app-dify-{APP_ID}"[:40]
