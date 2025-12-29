@@ -19,7 +19,7 @@ class DifyInputsProcessor(BaseChartValueProcessor[DifyAppInputs]):
         # dify chart supports External S3 / Azure / OSS (Alibaba)
         # Otherwise, dify needs ReadWriteMany PVC, which will be supported later
 
-        name = f"app-dify-{app_name}"
+        name = f"app-dify-{app_name}"[:40]
         bucket_credentials = await get_or_create_bucket_credentials(
             client=self.client,
             bucket_name=name,
