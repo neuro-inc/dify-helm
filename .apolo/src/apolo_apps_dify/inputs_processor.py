@@ -14,12 +14,12 @@ from .types import DifyAppInputs
 
 class DifyInputsProcessor(BaseChartValueProcessor[DifyAppInputs]):
     async def _get_or_create_dify_blob_storage_values(
-        self, input_: DifyAppInputs, app_name: str
+        self, input_: DifyAppInputs, app_id: str
     ) -> dict[str, t.Any]:
         # dify chart supports External S3 / Azure / OSS (Alibaba)
         # Otherwise, dify needs ReadWriteMany PVC, which will be supported later
 
-        name = f"app-dify-{app_name}"[:40]
+        name = f"app-dify-{app_id}"[:40]
         bucket_credentials = await get_or_create_bucket_credentials(
             client=self.client,
             bucket_name=name,
@@ -145,7 +145,7 @@ class DifyInputsProcessor(BaseChartValueProcessor[DifyAppInputs]):
 
         values.update(await self._get_dify_pg_values(input_))
         values.update(
-            await self._get_or_create_dify_blob_storage_values(input_, app_name)
+            await self._get_or_create_dify_blob_storage_values(input_, app_id)
         )
         values.update(await self._get_dify_redis_values(input_, namespace, app_id))
         ingress: dict[str, t.Any] = {"ingress": {}}
