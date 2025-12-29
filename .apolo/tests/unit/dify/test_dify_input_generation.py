@@ -1,7 +1,6 @@
 from unittest.mock import AsyncMock, patch
 
 import apolo_sdk
-import pytest
 from apolo_app_types_fixtures.constants import (
     APP_ID,
     APP_SECRETS_NAME,
@@ -21,7 +20,6 @@ from apolo_apps_dify.types import (
 from apolo_app_types.protocols.common import ApoloSecret, IngressHttp, Preset
 
 
-@pytest.mark.asyncio
 async def test_dify_values_generation(setup_clients):
     with patch(
         "apolo_apps_dify.inputs_processor.get_or_create_bucket_credentials",
@@ -64,7 +62,7 @@ async def test_dify_values_generation(setup_clients):
                 external_postgres=DEFAULT_POSTGRES_CREDS,
                 external_pgvector=DEFAULT_POSTGRES_CREDS,
             ),
-            app_name="dify-app",
+            app_name="dify-app-with-long-name-that-should-be-truncated",
             namespace=DEFAULT_NAMESPACE,
             app_secrets_name=APP_SECRETS_NAME,
             app_id=APP_ID,
@@ -114,4 +112,16 @@ async def test_dify_values_generation(setup_clients):
                 "traefik.ingress.kubernetes.io/router.middlewares"
             ]
             == "platform-platform-control-plane-ingress-auth@kubernetescrd"
+        )
+
+        assert helm_params["externalS3"] == {
+            "enabled": True,
+            "endpoint": "https://s3.amazonaws.com",
+            "accessKey": "test-access-key",
+            "secretKey": "test-secret-key",
+            "bucketName": "test-bucket",
+        }
+        assert (
+            mock_fetch.call_args[1]["bucket_name"]
+            == "app-dify-dify-app-with-long-name-that-sh"
         )
