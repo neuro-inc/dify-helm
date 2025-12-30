@@ -25,6 +25,7 @@ yarl = "^1.18.3"
 apolo-app-types = "^25.12.4"
 pre-commit = "^4.2.0"
 multidict = "^6.6.4"
+dirty-equals = "^0.11"
 
 [tool.poetry.group.dev]
 optional = true
