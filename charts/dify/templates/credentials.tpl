@@ -91,7 +91,12 @@ REDIS_PASSWORD: {{ .auth.password | b64enc | quote }}
 CELERY_BROKER_URL: {{ printf "redis://%s:%s@%s:%v/1" .username .password .host .port | b64enc | quote }}
   {{- end }}
 {{- else if .Values.redis.enabled }}
-{{- $redisHost := printf "%s-redis-master" .Release.Name -}}
+  {{- $redisHost := "" }}
+  {{- if .Values.redis.fullnameOverride }}
+  {{- $redisHost = printf "%s-master" .Values.redis.fullnameOverride }}
+  {{- else }}
+  {{- $redisHost = printf "%s-redis-master" .Release.Name }}
+  {{- end }}
   {{- with .Values.redis }}
 CELERY_BROKER_URL: {{ printf "redis://:%s@%s:%v/1" .auth.password $redisHost .master.service.ports.redis | b64enc | quote }}
   {{- end }}
