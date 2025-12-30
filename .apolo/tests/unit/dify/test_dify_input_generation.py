@@ -1,6 +1,7 @@
 from unittest.mock import AsyncMock, patch
 
 import apolo_sdk
+import dirty_equals
 from apolo_app_types_fixtures.constants import (
     APP_ID,
     APP_SECRETS_NAME,
@@ -101,8 +102,65 @@ async def test_dify_values_generation(setup_clients):
             "port": 4321,
             "dbName": "db_name",
         }
-        assert helm_params["redis"]["auth"]["password"]
-        assert helm_params["redis"]["architecture"] == "standalone"
+        assert helm_params["redis"] == {
+            "architecture": "standalone",
+            "auth": {"password": dirty_equals.IsStr(min_length=16)},
+            "fullnameOverride": f"dify-{APP_ID}-redis",
+            "master": {
+                "podLabels": {
+                    "platform.apolo.us/component": "redis_master",
+                    "platform.apolo.us/preset": "cpu-small",
+                },
+                "affinity": {
+                    "nodeAffinity": {
+                        "requiredDuringSchedulingIgnoredDuringExecution": {
+                            "nodeSelectorTerms": [
+                                {
+                                    "matchExpressions": [
+                                        {
+                                            "key": "platform.neuromation.io/nodepool",
+                                            "operator": "In",
+                                            "values": ["cpu_pool"],
+                                        }
+                                    ]
+                                }
+                            ],
+                        },
+                    },
+                },
+                "apolo_app_id": APP_ID,
+                "preset_name": "cpu-small",
+                "resources": {
+                    "limits": {
+                        "cpu": "2000.0m",
+                        "memory": "0M",
+                    },
+                    "requests": {
+                        "cpu": "2000.0m",
+                        "memory": "0M",
+                    },
+                },
+                "tolerations": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "platform.neuromation.io/job",
+                        "operator": "Exists",
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300,
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300,
+                    },
+                ],
+            },
+        }
         assert helm_params["api"]["secretKey"]
         assert helm_params["api"]["initPassword"]
 

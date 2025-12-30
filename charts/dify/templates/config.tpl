@@ -194,7 +194,12 @@ REDIS_USE_SSL: {{ .useSSL | toString | quote }}
 REDIS_DB: "0"
   {{- end }}
 {{- else if .Values.redis.enabled }}
-{{- $redisHost := printf "%s-redis-master" .Release.Name -}}
+  {{- $redisHost := "" }}
+  {{- if .Values.redis.fullnameOverride }}
+  {{- $redisHost = printf "%s-master" .Values.redis.fullnameOverride }}
+  {{- else }}
+  {{- $redisHost = printf "%s-redis-master" .Release.Name }}
+  {{- end }}
   {{- with .Values.redis }}
 REDIS_HOST: {{ $redisHost }}
 REDIS_PORT: {{ .master.service.ports.redis | toString | quote }}
@@ -214,7 +219,12 @@ REDIS_DB: "0"
 # CELERY_BROKER_URL: {{ printf "redis://%s:%s@%s:%v/1" .username .password .host .port }}
   {{- end }}
 {{- else if .Values.redis.enabled }}
-{{- $redisHost := printf "%s-redis-master" .Release.Name -}}
+  {{- $redisHost := "" }}
+  {{- if .Values.redis.fullnameOverride }}
+  {{- $redisHost = printf "%s-master" .Values.redis.fullnameOverride }}
+  {{- else }}
+  {{- $redisHost = printf "%s-redis-master" .Release.Name }}
+  {{- end }}
   {{- with .Values.redis }}
 # CELERY_BROKER_URL: {{ printf "redis://:%s@%s:%v/1" .auth.password $redisHost .master.service.ports.redis }}
   {{- end }}

@@ -870,6 +870,21 @@ test = ["certifi (>=2024)", "cryptography-vectors (==46.0.3)", "pretend (>=0.7)"
 test-randomorder = ["pytest-randomly"]
 
 [[package]]
+name = "dirty-equals"
+version = "0.11"
+description = "Doing dirty (but extremely useful) things with equals."
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "dirty_equals-0.11-py3-none-any.whl", hash = "sha256:b1d7093273fc2f9be12f443a8ead954ef6daaf6746fd42ef3a5616433ee85286"},
+    {file = "dirty_equals-0.11.tar.gz", hash = "sha256:f4ac74ee88f2d11e2fa0f65eb30ee4f07105c5f86f4dc92b09eb1138775027c3"},
+]
+
+[package.extras]
+pydantic = ["pydantic (>=2.4.2)"]
+
+[[package]]
 name = "distlib"
 version = "0.4.0"
 description = "Distribution utilities"
@@ -2602,4 +2617,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11.0,<4.0"
-content-hash = "ffaea9fc8338d05007a7c6d31675c5321a019672e700d1012ed34fcc3f80ff28"
+content-hash = "d2628ab6c86d85fce4cfbc646b95d391a13a5eb0981eb5fdd3cba83ad4f8c7e6"

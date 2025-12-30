@@ -107,6 +107,7 @@ class DifyInputsProcessor(BaseChartValueProcessor[DifyAppInputs]):
             "redis": {
                 "auth": {"password": secrets.token_urlsafe(16)},
                 "architecture": "standalone",
+                "fullnameOverride": f"dify-{app_id}-redis",
                 "master": await gen_extra_values(
                     self.client,
                     input_.redis.master_preset,
