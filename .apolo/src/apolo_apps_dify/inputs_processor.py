@@ -73,16 +73,23 @@ class DifyInputsProcessor(BaseChartValueProcessor[DifyAppInputs]):
     async def _get_dify_pg_values(self, input_: DifyAppInputs) -> dict[str, t.Any]:
         """Get Dify values to integrate with pgvector and postgres DB"""
 
+        pg_password = await self.client.secrets.get(
+            input_.external_postgres.password.key
+        )
+        pgvector_password = await self.client.secrets.get(
+            input_.external_pgvector.password.key
+        )
+
         postgres_values = {
             "username": input_.external_postgres.user,
-            "password": input_.external_postgres.password,
+            "password": pg_password.decode(),
             "address": input_.external_postgres.pgbouncer_host,
             "port": input_.external_postgres.pgbouncer_port,
             "dbName": input_.external_postgres.dbname,
         }
         pgvector_values = {
             "username": input_.external_pgvector.user,
-            "password": input_.external_pgvector.password,
+            "password": pgvector_password.decode(),
             "address": input_.external_pgvector.pgbouncer_host,
             "port": input_.external_pgvector.pgbouncer_port,
             "dbName": input_.external_pgvector.dbname,
