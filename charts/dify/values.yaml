@@ -58,7 +58,10 @@ image:
 api:
   enabled: true
   replicas: 1
-  resources: {}
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
   nodeSelector: {}
   affinity: {}
   tolerations: []
@@ -168,7 +171,10 @@ api:
 worker:
   enabled: true
   replicas: 1
-  resources: {}
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
   nodeSelector: {}
   affinity: {}
   tolerations: []
@@ -191,7 +197,10 @@ worker:
 proxy:
   enabled: true
   replicas: 1
-  resources: {}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
   nodeSelector: {}
   affinity: {}
   tolerations: []
@@ -231,7 +240,10 @@ proxy:
 web:
   enabled: true
   replicas: 1
-  resources: {}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
   nodeSelector: {}
   affinity: {}
   tolerations: []
@@ -249,7 +261,10 @@ web:
 sandbox:
   enabled: false
   replicas: 1
-  resources: {}
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
   nodeSelector: {}
   affinity: {}
   tolerations: []
@@ -273,7 +288,10 @@ sandbox:
 ssrfProxy:
   enabled: false
   replicas: 1
-  resources: {}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
   nodeSelector: {}
   affinity: {}
   tolerations: []
@@ -335,7 +353,10 @@ postgresql:
   primary:
     resources:
       limits: {}
-      requests: {}
+      requests:
+        requests:
+          cpu: 100m
+          memory: 128Mi
     persistence:
       enabled: true
       storageClass: ""
