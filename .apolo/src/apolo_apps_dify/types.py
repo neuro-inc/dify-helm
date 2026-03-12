@@ -69,7 +69,14 @@ class DifyAppApi(BaseModel):
             description="Configure Replicas count.",
         ).as_json_schema_extra(),
     )
-    preset: Preset
+    preset: Preset = Field(
+        ...,
+        json_schema_extra=SchemaExtraMetadata(
+            title="Dify API Preset",
+            description="Specify preset configuration for Dify API. "
+            "Minimal resources: 0.1 CPU cores, 256 MiB memory.",
+        ).as_json_schema_extra(),
+    )
 
 
 class DifyAppWorker(BaseModel):
@@ -88,7 +95,14 @@ class DifyAppWorker(BaseModel):
             description="Configure Replicas count.",
         ).as_json_schema_extra(),
     )
-    preset: Preset
+    preset: Preset = Field(
+        ...,
+        json_schema_extra=SchemaExtraMetadata(
+            title="Dify Worker Preset",
+            description="Specify preset configuration for Dify Worker. "
+            "Minimal resources: 1 CPU cores, 2 GiB memory.",
+        ).as_json_schema_extra(),
+    )
 
 
 class DifyAppProxy(BaseModel):
@@ -99,7 +113,14 @@ class DifyAppProxy(BaseModel):
             description="Configure Dify Proxy.",
         ).as_json_schema_extra(),
     )
-    preset: Preset
+    preset: Preset = Field(
+        ...,
+        json_schema_extra=SchemaExtraMetadata(
+            title="Dify Proxy Preset",
+            description="Specify preset configuration for Dify Proxy. "
+            "Minimal resources: 0.5 CPU cores, 512 MiB memory.",
+        ).as_json_schema_extra(),
+    )
 
 
 class DifyAppWeb(BaseModel):
@@ -118,7 +139,14 @@ class DifyAppWeb(BaseModel):
             description="Configure Replicas count.",
         ).as_json_schema_extra(),
     )
-    preset: Preset
+    preset: Preset = Field(
+        ...,
+        json_schema_extra=SchemaExtraMetadata(
+            title="Dify Web Preset",
+            description="Specify preset configuration for Dify Web. "
+            "Minimal resources: 0.5 CPU cores, 256 MiB memory.",
+        ).as_json_schema_extra(),
+    )
 
 
 class DifyAppRedis(BaseModel):
