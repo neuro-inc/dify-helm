@@ -21,9 +21,6 @@
     integrating Retrieval-Augmented Generation (RAG) pipelines, and managing AI agents.
     This approach democratizes AI development, allowing both technical and non-technical users
     to build sophisticated AI solutions.
-    Resource sizing options:
-    - Lean (dev/test): 1 vCPU, 2 GiB RAM
-    - Balanced (prod): 2 vCPU, 4 GiB RAM
   pub_date: "2025-05-08T00:00:00+00:00"
   logo: https://storage.googleapis.com/development-421920-assets/app-logos/dify.png
   tags: ["Dify", "LLM", "LLMops", "RAG", "Agent"]
