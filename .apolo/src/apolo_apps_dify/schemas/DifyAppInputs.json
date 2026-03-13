@@ -219,7 +219,9 @@
           "x-title": "Replicas Count"
         },
         "preset": {
-          "$ref": "#/$defs/Preset"
+          "$ref": "#/$defs/Preset",
+          "x-description": "Specify preset configuration for Dify API. Minimal resources: 0.1 CPU cores, 256 MiB memory.",
+          "x-title": "Dify API Preset"
         }
       },
       "required": [
@@ -236,7 +238,9 @@
     "DifyAppProxy": {
       "properties": {
         "preset": {
-          "$ref": "#/$defs/Preset"
+          "$ref": "#/$defs/Preset",
+          "x-description": "Specify preset configuration for Dify Proxy. Minimal resources: 0.5 CPU cores, 512 MiB memory.",
+          "x-title": "Dify Proxy Preset"
         }
       },
       "required": [
@@ -283,7 +287,9 @@
           "x-title": "Replicas Count"
         },
         "preset": {
-          "$ref": "#/$defs/Preset"
+          "$ref": "#/$defs/Preset",
+          "x-description": "Specify preset configuration for Dify Web. Minimal resources: 0.5 CPU cores, 256 MiB memory.",
+          "x-title": "Dify Web Preset"
         }
       },
       "required": [
@@ -311,7 +317,9 @@
           "x-title": "Replicas Count"
         },
         "preset": {
-          "$ref": "#/$defs/Preset"
+          "$ref": "#/$defs/Preset",
+          "x-description": "Specify preset configuration for Dify Worker. Minimal resources: 1 CPU cores, 2 GiB memory.",
+          "x-title": "Dify Worker Preset"
         }
       },
       "required": [
